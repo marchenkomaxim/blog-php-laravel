@@ -85,6 +85,11 @@
         bsCustomFileInput.init();
     });
 </script>
+<style>
+    .custom-file-input:lang(en)~label.custom-file-label::after{
+        content: "...";
+    }
+</style>
 </body>
 <head>
     <meta charset="utf-8">
