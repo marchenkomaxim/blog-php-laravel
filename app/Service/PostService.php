@@ -39,7 +39,6 @@ class PostService
                 unset($data['tag_ids']);
             }
 
-
             if (isset($data['preview_image'])) {
                 $data['preview_image'] = Storage::disk('public')->put('/images', $data['preview_image']);
             }
