@@ -9,7 +9,7 @@ class ShowController extends Controller
 {
     public function __invoke(Tag $tag)
     {
-        $tag = Tag::all();
+        //$tag = Tag::all();
         return view('admin.tag.show', compact('tag'));
     }
 }
