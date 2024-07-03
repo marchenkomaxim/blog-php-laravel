@@ -38,7 +38,7 @@
                                     <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Название</th>
+                                        <th>Имя</th>
                                         <th colspan="3" class="text-center">Действия</th>
                                     </tr>
                                     </thead>
