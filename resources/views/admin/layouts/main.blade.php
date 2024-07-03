@@ -5,18 +5,28 @@
 
     <!-- Preloader -->
     <div class="preloader flex-column justify-content-center align-items-center">
-        <img class="animation__shake" src="{{ asset('dist/img/AdminLTELogo.png') }}  " alt="AdminLTELogo" height="60" width="60">
+        <img class="animation__shake" src="{{ asset('dist/img/AdminLTELogo.png') }}  " alt="AdminLTELogo" height="60"
+             width="60">
     </div>
 
     <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light d-flex">
         <!-- Left navbar links -->
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-            </li>
-        </ul>
-
+        <div class="col-12 d-flex justify-content-between">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <input class="btn btn-outline-primary" type="submit" value="Выйти ">
+                    </form>
+                </li>
+            </ul>
+        </div>
     </nav>
     <!-- /.navbar -->
 
@@ -89,7 +99,7 @@
     $('.select2').select2();
 </script>
 <style>
-    .custom-file-input:lang(en)~label.custom-file-label::after{
+    .custom-file-input:lang(en) ~ label.custom-file-label::after {
         content: "...";
     }
 </style>
@@ -100,7 +110,8 @@
     <title>AdminLTE 3 | Dashboard</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href=" {{ asset('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback') }} ">
+    <link rel="stylesheet"
+          href=" {{ asset('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback') }} ">
     <link rel="stylesheet" href=" {{ asset('plugins/select2/css/select2.min.css') }} ">
     <!-- Font Awesome -->
     <link rel="stylesheet" href=" {{ asset('plugins/fontawesome-free/css/all.min.css') }} ">
