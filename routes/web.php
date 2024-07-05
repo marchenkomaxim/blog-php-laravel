@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 //    return 'aaaaa';
 //});
 Route::group(['namespace' => 'App\Http\Controllers\Main'], function () {
-    Route::get('/', 'IndexController')->name('index');
+    Route::get('/', 'IndexController')->name('main.index');
 });
 
 Route::group(['namespace' => 'App\Http\Controllers\Personal', 'prefix' => 'personal', 'middleware' => ['auth', EnsureEmailIsVerified::class]], function () {
