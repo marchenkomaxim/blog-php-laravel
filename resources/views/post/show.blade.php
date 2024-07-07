@@ -19,8 +19,31 @@
                     </div>
                 </div>
             </section>
+            <section>
+
+            </section>
             <div class="row">
                 <div class="col-lg-9 mx-auto">
+                    <section class="py-3">
+                        <div class="d-flex justify-content-between">
+                            <p class="blog-post-category">{{ $post->category->title }}</p>
+                            @auth()
+                                <form action="{{ route('post.like.store', $post->id) }}" method="post">
+                                    @csrf
+                                    <span>{{ $post->liked_users_count }}</span>
+                                    <button type="submit" class="border-0 bg-transparent">
+                                        <i class="fa{{ auth()->user()->likedPosts->contains($post->id) ? 's' : 'r' }} fa-heart"></i>
+                                    </button>
+                                </form>
+                            @endauth
+                            @guest()
+                                <div>
+                                    <span>{{ $post->liked_users_count }}</span>
+                                    <i class="far fa-heart"></i>
+                                </div>
+                        @endguest
+                    </section>
+                    @if($relatedPosts->count() > 0)
                     <section class="related-posts">
                         <h2 class="section-title mb-4" data-aos="fade-up">Схожие посты</h2>
                         <div class="row">
@@ -35,6 +58,7 @@
                             @endforeach
                         </div>
                     </section>
+                    @endif
                     <section class="comment-list mb-5">
                         <h2 class="section-title mb-5" data-aos="fade-up">Комментарии {{ $post->comments->count() }}</h2>
                         @foreach($post->comments as $comment)

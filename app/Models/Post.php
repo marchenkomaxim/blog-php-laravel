@@ -12,6 +12,7 @@ class Post extends Model
     use SoftDeletes;
     protected $table = 'posts';
     protected $guarded = false;
+    protected $withCount = ['likedUsers'];
 
     public function tags() {
         return $this->belongsToMany(Tag::class, 'post_tags', 'post_id', 'tag_id');
